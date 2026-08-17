@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="dashboard-container">
+
+    <div class="dashboard-header">
+        <div>
+            <h1>Dashboard</h1>
+            <p>Welcome back! Here's your event booking overview.</p>
+        </div>
+    </div>
+
+    <!-- Statistics -->
+    <div class="stats-grid">
+
+        <div class="stat-card">
+            <h3>Upcoming Events</h3>
+            <p>{{upcoming_events}}</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>Total Bookings</h3>
+            <p>{{total_bookings}}</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>Available Events</h3>
+            <p>{{available_events}}</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>My Activity</h3>
+            <p>{{my_activity}}</p>
+        </div>
+
+    </div>
+
+    <!-- Booking History -->
+  <div class="dashboard-section">
+    <h2>Booking History</h2>
+
+    {% if bookings %}
+        <div class="booking-list">
+
+            {% for booking in bookings %}
+            <div class="booking-card">
+
+                <h3>{{ booking.event_name }}</h3>
+
+                <p><strong>Seats:</strong> {{ booking.number_of_seats }}</p>
+
+                <p><strong>Booking Date:</strong> {{ booking.booking_date }}</p>
+
+                <p><strong>Status:</strong> {{ booking.status }}</p>
+
+            </div>
+            {% endfor %}
+
+        </div>
+    {% else %}
+        <div class="empty-box">
+            <p>No booking history available.</p>
+        </div>
+    {% endif %}
+
+</div>
+  
+  
+  
+
+    <!-- Upcoming Events -->
+    <div class="dashboard-section">
+    <h2>Upcoming Events</h2>
+
+    {% if upcoming_event_list %}
+        <div class="event-list">
+
+            {% for event in upcoming_event_list %}
+            <div class="event-card">
+
+                <h3>{{ event.event_name }}</h3>
+
+                <p><strong>Date:</strong> {{ event.event_date }}</p>
+
+                <p><strong>Time:</strong> {{ event.event_time }}</p>
+
+                <p><strong>Venue:</strong> {{ event.venue }}</p>
+
+                <p>
+                    <strong>Available Seats:</strong>
+                    {{ event.available_seats }}
+                </p>
+
+            </div>
+            {% endfor %}
+
+        </div>
+    {% else %}
+        <div class="empty-box">
+            <p>No upcoming events.</p>
+        </div>
+    {% endif %}
+
+</div>
+
+</div>
+
+{% endblock %}
