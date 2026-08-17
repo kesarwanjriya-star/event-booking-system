@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Add Event{% endblock %}
+
+{% block content %}
+
+<div class="form-container">
+
+    <h1>Add New Event</h1>
+    <p>Create a new event for your Event Booking System.</p>
+
+    <form method="POST">
+
+        <label>Event Name</label>
+        <input type="text" name="event_name" required>
+
+        <label>Description</label>
+        <textarea name="description" rows="4" required></textarea>
+
+        <label>Event Date</label>
+        <input type="date" name="event_date" required>
+
+        <label>Event Time</label>
+        <input type="time" name="event_time" required>
+
+        <label>Venue</label>
+        <input type="text" name="venue" required>
+
+        <label>Available Seats</label>
+        <input type="number" name="available_seats" min="1" required>
+
+        <label>Banner Image</label>
+        <input type="text" name="banner_image"
+               placeholder="e.g. images/event.jpg">
+
+        <button type="submit">Add Event</button>
+
+    </form>
+
+</div>
+
+{% endblock %}

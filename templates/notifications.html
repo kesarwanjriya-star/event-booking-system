@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Notifications | EventBook{% endblock %}
+
+{% block content %}
+
+<section class="notifications-page">
+
+    <h1>Notifications</h1>
+    <p>Stay updated with your event bookings</p>
+
+    {% if notifications %}
+
+        {% for notification in notifications %}
+
+        <div class="notification-card">
+            <h2>{{ notification.title }}</h2>
+            <p>{{ notification.message }}</p>
+            <small>{{ notification.created_at }}</small>
+        </div>
+
+        {% endfor %}
+
+    {% else %}
+
+        <div class="no-notifications">
+            <h2>No Notifications</h2>
+            <p>You don't have any notification yet.</p>
+        </div>
+
+    {% endif %}
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}My Bookings | EventBook{% endblock %}
+
+{% block content %}
+
+<section class="my-bookings">
+
+    <h1>My Bookings</h1>
+    <p>Here you can see all your booked events.</p>
+
+    {% if bookings %}
+
+        {% for booking in bookings %}
+
+        <div class="booking-card">
+
+            <h2>Booking #{{ booking.booking_id }}</h2>
+
+            <h2>{{ booking.event_name }}</h2>
+
+            <p><strong>Event Date:</strong> {{ booking.event_date }}</p>
+            <p><strong>Event Time:</strong> {{ booking.event_time }}</p>
+            <p><strong>Venue:</strong> {{ booking.venue }}</p>
+            <p><strong>Seats:</strong> {{ booking.number_of_seats }}</p>
+            <p><strong>Booking Date:</strong> {{ booking.booking_date }}</p>
+
+            <p>
+                <strong>Status:</strong>
+                <span class="confirmed">{{ booking.status }}</span>
+            </p>
+
+        </div>
+
+        {% endfor %}
+
+    {% else %}
+
+        <div class="no-bookings">
+            <h2>No Bookings Yet</h2>
+            <p>You haven't booked any event yet.</p>
+
+            <a href="/events" class="book-btn">Discover Events</a>
+        </div>
+
+    {% endif %}
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Book Event | EventBook{% endblock %}
+
+{% block content %}
+
+<section class="booking">
+    <h1>Book Your Event</h1>
+    <p>Fill in your details to reserve your seats.</p>
+
+    <form method="POST" action="/booking">
+
+        <label>Select Event</label>
+
+        <select name="event_id" required>
+            <option value="">-- Select Event --</option>
+
+            {% for event in events %}
+                <option value="{{ event.event_id }}">
+                    {{ event.event_name }}
+                </option>
+            {% endfor %}
+        </select>
+
+        <label>Full Name</label>
+        <input type="text" name="name"
+               placeholder="Enter your name" required>
+
+        <label>Email</label>
+        <input type="email" name="email"
+               placeholder="Enter your email" required>
+
+        <label>Number of Seats</label>
+        <input type="number" name="seats"
+               placeholder="Enter seats" min="1" required>
+
+        <button type="submit">Confirm Booking</button>
+
+    </form>
+</section>
+
+{% endblock %}
