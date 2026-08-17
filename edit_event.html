@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Event{% endblock %}
+
+{% block content %}
+
+<div class="form-container">
+
+    <h1>Edit Event</h1>
+    <p>Update the event details below.</p>
+
+    <form method="POST">
+
+        <label>Event Name</label>
+        <input type="text" name="event_name"
+               value="{{ event.event_name }}" required>
+
+        <label>Description</label>
+        <textarea name="description" rows="4" required>{{ event.description }}</textarea>
+
+        <label>Event Date</label>
+        <input type="date" name="event_date"
+               value="{{ event.event_date }}" required>
+
+        <label>Event Time</label>
+        <input type="time" name="event_time"
+               value="{{ event.event_time }}" required>
+
+        <label>Venue</label>
+        <input type="text" name="venue"
+               value="{{ event.venue }}" required>
+
+        <label>Available Seats</label>
+        <input type="number" name="available_seats"
+               value="{{ event.available_seats }}" min="1" required>
+
+        <label>Banner Image</label>
+        <input type="text" name="banner_image"
+               value="{{ event.banner_image or '' }}">
+
+        <button type="submit">Update Event</button>
+
+    </form>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+    <section class="hero">
+        <h1>Welcome to Event Booking System</h1>
+        <p> Discover, book and manage your favourite event easily.</p>
+
+        <a href="/events" class="btn">Explore Events</a>
+    </section>
+
+    <section class="events">
+        <h2>Popular Events</h2>
+        <div class="cards">
+            <div class="card">
+                <h3>Music Concert</h3>
+                <p>Enjoy an amazing live experience.</p>
+            </div>
+
+            <div class="card">
+                <h3>Tech Conference</h3>
+                <p>Learn about new technologies and ideas.</p>
+            </div>
+
+            <div class="card">
+                <h3>Cultural Fest</h3>
+                <p>Experience culture, art and entertainment.</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <footer>
+        <p>CopyRight 2026 Event Booking System | All Rights Reserved</p>
+    </footer>
+
+    {% endblock %}
+    

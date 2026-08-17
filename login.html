@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Login | EventBook{% endblock %}
+
+{% block content %}
+
+<div class="login-container">
+
+    <div class="Login-card">
+
+        <h1>Welcome Back</h1>
+
+        <p>Login to continue booking your favourite events.</p>
+
+        <form method="POST" action="/login">
+
+            <label>Email Address</label>
+            <input type="email"
+                   name="email"
+                   placeholder="Enter your email"
+                   required>
+
+            <label>Password</label>
+            <input type="password"
+                   name="password"
+                   placeholder="Enter your password"
+                   required>
+
+            <button type="submit">Login</button>
+
+        </form>
+
+        <p class="register-text">
+            Don't have an account?
+            <a href="/register">Create Account</a>
+        </p>
+
+    </div>
+
+</div>
+
+{% endblock %}
