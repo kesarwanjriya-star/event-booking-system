@@ -1,15 +1,20 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 import mysql.connector
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
 app = Flask(__name__)
 
 app.secret_key = "eventbook_secret"
 
 db = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="Shiv123@",
-    database="event_booking_system"
+    host=os.getenv("DB_HOST"),
+    port=int(os.getenv("DB_PORT")),
+    user=os.getenv("DB_USER"),
+    password=os.getenv("DB_PASSWORD"),
+    database=os.getenv("DB_NAME"),
+    ssl_ca="ca.pem"
 )
 
 @app.route("/")
